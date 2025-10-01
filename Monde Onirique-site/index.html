@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr" class="bg-gray-950 text-gray-200 antialiased font-inter">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monde Onirique : Rêves, Lucides et Manipulation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body class="bg-gray-950 text-gray-200">
+    <!-- Starry background Canvas -->
+    <canvas id="starry-canvas" class="starry-bg"></canvas>
+
+    <div class="relative min-h-screen hero-bg overflow-hidden">
+        <!-- Navigation -->
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center transition-colors duration-300">
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold magic-text transition-transform hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2c-3.14 0-5.7 2.56-5.7 5.7c0 2.25 1.05 4.31 2.8 5.67l-.7 2.03-2.1-.6c-1.89-1.39-3.04-3.56-3.04-5.9c0-4.41 3.59-8 8-8s8 3.59 8 8c0 2.34-1.15 4.51-3.04 5.9l-2.1.6-.7-2.03c1.75-1.36 2.8-3.42 2.8-5.67c0-3.14-2.56-5.7-5.7-5.7zm0 10c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
+                </svg>
+                <span>Monde Onirique</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#hero" class="hover:text-yellow-400 transition-colors">Accueil</a>
+                <a href="#lucid-dreaming" class="hover:text-yellow-400 transition-colors">Rêves Lucides</a>
+                <a href="#dream-manipulation" class="hover:text-yellow-400 transition-colors">Manipulation</a>
+                <a href="#benefits" class="hover:text-yellow-400 transition-colors">Bienfaits</a>
+                <a href="#myths-science" class="hover:text-yellow-400 transition-colors">Mythes & Science</a>
+                <a href="#dream-journal" class="hover:text-yellow-400 transition-colors">Journal de Rêve</a>
+                <a href="#advanced-techniques" class="hover:text-yellow-400 transition-colors">Techniques Avancées</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-200 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed top-0 right-0 z-40 h-full w-64 bg-gray-900/90 backdrop-blur-md p-6 transform translate-x-full md:hidden transition-transform duration-300 ease-in-out">
+            <div class="flex justify-end">
+                <button id="close-mobile-menu-btn" class="text-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="flex flex-col space-y-4 text-xl mt-8">
+                <li><a href="#hero" class="block py-2 hover:text-yellow-400">Accueil</a></li>
+                <li><a href="#lucid-dreaming" class="block py-2 hover:text-yellow-400">Rêves Lucides</a></li>
+                <li><a href="#dream-manipulation" class="block py-2 hover:text-yellow-400">Manipulation</a></li>
+                <li><a href="#benefits" class="block py-2 hover:text-yellow-400">Bienfaits</a></li>
+                <li><a href="#myths-science" class="hover:text-yellow-400 transition-colors">Mythes & Science</a></li>
+                <li><a href="#dream-journal" class="hover:text-yellow-400 transition-colors">Journal de Rêve</a></li>
+                <li><a href="#advanced-techniques" class="hover:text-yellow-400 transition-colors">Techniques Avancées</a></li>
+            </ul>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 md:px-8">
+            <div class="hero-content z-10 max-w-4xl space-y-6">
+                <h1 class="text-5xl md:text-7xl font-extrabold magic-text leading-tight">
+                    Explorez les Mondes de Vos Rêves
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+                    Découvrez l'art de voyager à travers votre subconscient. Apprenez à comprendre, contrôler et manipuler vos rêves pour un éveil créatif et personnel.
+                </p>
+
+                <a href="#lucid-dreaming" class="inline-block cta-button px-8 py-3 text-lg font-semibold text-white">
+                    Commencer l'Aventure
+                </a>
+            </div>
+        </section>
+
+        <div class="py-24 px-4 md:px-8">
+            <!-- Lucid Dreaming Section -->
+            <section id="lucid-dreaming" class="max-w-6xl mx-auto section-container">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl md:text-5xl font-bold magic-text">Le Rêve Lucide : Qu'est-ce que c'est ?</h2>
+                        <p class="text-lg text-gray-300">
+                            Un rêve lucide est un rêve où le rêveur est pleinement conscient qu'il est en train de rêver. Ce n'est pas un simple rêve dont on se souvient, mais une expérience d'éveil de la conscience à l'intérieur de son propre monde onirique. Ce niveau de conscience ouvre la porte à des possibilités illimitées, vous permettant de prendre les commandes de votre monde onirique. C'est un état hybride entre la veille et le sommeil.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            La pratique du rêve lucide a des racines qui remontent à des milliers d'années dans les traditions orientales, notamment le bouddhisme tibétain. Ce n'est qu'au 20ème siècle qu'elle a été validée par la science. C'est un état psychologique réel et mesurable, différent du sommeil normal et de l'éveil.
+                        </p>
+                        <h3 class="text-3xl font-bold magic-text pt-8">Les Étapes Clés de la Lucidité</h3>
+                        <p class="text-lg text-gray-300">
+                            Atteindre la lucidité n'est pas un accident, c'est une compétence qui se développe par la pratique. La première étape est l'amélioration de votre mémoire des rêves, souvent via un journal de rêve. C'est la base, car si vous ne vous souvenez pas de vos rêves, vous ne pourrez pas y devenir lucide.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            La seconde étape est de développer la conscience de l'état de rêve. On y parvient en effectuant des tests de réalité durant la journée. Ces tests consistent en des actions simples, comme regarder ses mains ou lire un texte, qui ne fonctionnent pas normalement dans un rêve. Le fait de les réaliser régulièrement dans la vie éveillée crée une habitude qui peut se déclencher pendant un rêve, vous signalant alors que vous rêvez.
+                        </p>
+                        <button class="btn-secondary mt-6 px-6 py-2 font-semibold" onclick="toggleExpertText('lucid-expert-text')">
+                            Ce que disent nos experts
+                        </button>
+                        <div id="lucid-expert-text" class="expert-text" aria-hidden="true">
+                            <h4 class="text-xl font-bold magic-text">Rêves Lucides et Neurosciences</h4>
+                            <p class="mt-4 text-lg text-gray-300">
+                                La neurobiologie a démontré que l'état de rêve lucide est caractérisé par une activation unique de certaines régions cérébrales, notamment le cortex préfrontal. Cette zone, associée à la prise de décision et à la conscience de soi, est habituellement inactive pendant le sommeil paradoxal (REM). Sa réactivation permet au rêveur de prendre conscience de son état. Des études ont également révélé que les rêveurs lucides affichent des ondes gamma de haute fréquence, un type d'activité cérébrale associé à des états de conscience élevée.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative h-96 flex items-center justify-center">
+                        <div id="lucid-orb" class="absolute w-48 h-48 rounded-full bg-blue-500/30 blur-3xl scale-0 animated-orb"></div>
+                        <div id="lucid-icon" class="absolute transform scale-0 rotate-45 animated-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="py-24 px-4 md:px-8">
+            <!-- Dream Manipulation Section -->
+            <section id="dream-manipulation" class="max-w-6xl mx-auto section-container">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative h-96 flex items-center justify-center order-2 md:order-1">
+                        <div id="manipulation-orb" class="absolute w-48 h-48 rounded-full bg-purple-500/30 blur-3xl scale-0 animated-orb"></div>
+                        <div id="manipulation-icon" class="absolute transform scale-0 animated-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.99 2.99M11 11h.01M17 17h.01M19 4h.01M15 4h.01M12 21v-4m-2 2h4M12 12v.01M12 7h.01M9 12h.01M15 12h.01" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="space-y-6 order-1 md:order-2">
+                        <h2 class="text-4xl md:text-5xl font-bold magic-text">Maîtriser et Manipuler vos Rêves</h2>
+                        <p class="text-lg text-gray-300">
+                            Une fois lucide, le véritable pouvoir commence. Vous n'êtes plus un simple spectateur, mais l'architecte et le scénariste de votre propre réalité onirique. La manipulation des rêves est l'art d'influencer activement l'environnement, les personnages et les événements de votre rêve. Le contrôle dans un rêve est directement lié à votre niveau de confiance et de croyance en votre capacité à influencer le monde onirique.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Cela peut être aussi simple que de faire apparaître une porte vers une autre scène, ou aussi complexe que de dialoguer avec des personnages oniriques pour explorer des aspects de votre personnalité. La manipulation des rêves est un outil de création illimité pour exprimer votre imagination et façonner votre expérience intérieure.
+                        </p>
+                        <h3 class="text-3xl font-bold magic-text pt-8">Techniques de Contrôle</h3>
+                        <p class="text-lg text-gray-300">
+                            Pour manipuler un rêve, la première règle est de ne pas paniquer. L'excitation peut vous faire perdre la lucidité. Commencez par de petits changements, comme modifier une couleur ou un objet simple. Pour faire apparaître un objet, imaginez-le comme étant derrière un mur ou dans votre poche. La croyance est la clé. Si vous croyez fermement que l'objet est là, il apparaîtra.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Les obstacles de la manipulation sont souvent psychologiques. Si vous n'arrivez pas à faire voler, c'est que votre subconscient pense que c'est impossible. Pour surmonter cela, vous pouvez commencer par sauter d'une hauteur, puis de plus haut, jusqu'à ce que vous voliez. Interagir avec des personnages de rêve peut aussi être un moyen puissant d'apprendre sur vous-même. Ces personnages peuvent souvent être des projections de votre propre subconscient.
+                        </p>
+                        <button class="btn-secondary mt-6 px-6 py-2 font-semibold" onclick="toggleExpertText('manipulation-expert-text')">
+                            Ce que disent nos experts
+                        </button>
+                        <div id="manipulation-expert-text" class="expert-text" aria-hidden="true">
+                            <h4 class="text-xl font-bold magic-text">Le Pouvoir de la Croyance</h4>
+                            <p class="mt-4 text-lg text-gray-300">
+                                Le contrôle dans un rêve lucide est un exercice de l'intention et de la confiance en soi. Des chercheurs ont montré que la capacité d'un rêveur à manipuler son environnement onirique est directement liée à son niveau de confiance en ses propres capacités. Si vous doutez de pouvoir voler, vous ne volerez pas. Le rêve, étant une construction de votre esprit, répond à vos croyances profondes. En vous exerçant à de petites manipulations, vous renforcez cette confiance, ce qui vous permet d'accomplir des actions de plus en plus complexes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="py-24 px-4 md:px-8">
+            <!-- Bienfaits Section -->
+            <section id="benefits" class="max-w-6xl mx-auto section-container">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl md:text-5xl font-bold magic-text">Les Bienfaits du Rêve Lucide</h2>
+                        <p class="text-lg text-gray-300">
+                            La pratique du rêve lucide va bien au-delà du simple divertissement. Elle offre des avantages concrets pour le bien-être physique et mental, agissant comme un terrain d'entraînement personnel pour la vie éveillée.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Un des bienfaits les plus étudiés est la capacité à surmonter les cauchemars récurrents et les phobies. En confrontant directement vos peurs dans un environnement où vous êtes en contrôle, vous pouvez les désamorcer dans la vie éveillée.
+                        </p>
+                        <h3 class="text-3xl font-bold magic-text pt-8">La Créativité et la Résolution de Problèmes</h3>
+                        <p class="text-lg text-gray-300">
+                            Les rêves lucides sont un formidable outil pour stimuler la créativité. De nombreux artistes et écrivains se sont inspirés de leurs rêves. En étant lucide, vous pouvez vous immerger dans un environnement où tout est possible et explorer des idées sans limites.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            La résolution de problèmes est une autre application. Le rêveur peut se poser une question avant de s'endormir et chercher la réponse dans le rêve lucide. Étant donné que le cerveau travaille différemment pendant le sommeil, des solutions à des problèmes complexes peuvent émerger de manière intuitive. C'est une façon de puiser dans le potentiel de votre subconscient pour trouver de nouvelles perspectives.
+                        </p>
+                        <button class="btn-secondary mt-6 px-6 py-2 font-semibold" onclick="toggleExpertText('benefits-expert-text')">
+                            Ce que disent nos experts
+                        </button>
+                        <div id="benefits-expert-text" class="expert-text" aria-hidden="true">
+                            <h4 class="text-xl font-bold magic-text">Les Applications Cliniques</h4>
+                            <p class="mt-4 text-lg text-gray-300">
+                                Des études cliniques ont démontré l'efficacité de la thérapie par rêve lucide pour les patients souffrant de cauchemars récurrents liés au trouble de stress post-traumatique (TSPT). En apprenant à devenir lucides, les patients peuvent transformer des scénarios terrifiants en expériences neutres ou positives, réduisant ainsi leur peur et leur anxiété nocturnes. La pratique du rêve lucide est également explorée comme un outil pour l'entraînement moteur, les athlètes pouvant pratiquer des mouvements complexes dans un rêve, renforçant ainsi leurs circuits neuronaux.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative h-96 flex items-center justify-center">
+                        <div id="benefits-orb" class="absolute w-48 h-48 rounded-full bg-green-500/30 blur-3xl scale-0 animated-orb"></div>
+                        <div id="benefits-icon" class="absolute transform scale-0 animated-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293L19.707 9.707a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="py-24 px-4 md:px-8">
+            <!-- Mythes et Science Section -->
+            <section id="myths-science" class="max-w-6xl mx-auto section-container">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative h-96 flex items-center justify-center order-2 md:order-1">
+                        <div id="science-orb" class="absolute w-48 h-48 rounded-full bg-teal-500/30 blur-3xl scale-0 animated-orb"></div>
+                        <div id="science-icon" class="absolute transform scale-0 animated-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-teal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0 2c-4.41 0-8 2.69-8 6h16c0-3.31-2.69-6-6-6zM12 2a10 10 0 100 20 10 10 0 000-20z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="space-y-6 order-1 md:order-2">
+                        <h2 class="text-4xl md:text-5xl font-bold magic-text">Mythes et Science des Rêves</h2>
+                        <p class="text-lg text-gray-300">
+                            Pendant des siècles, les rêves ont été considérés comme des messages divins ou des prophéties. Aujourd'hui, la science nous offre une nouvelle perspective, en étudiant l'activité cérébrale pendant le sommeil paradoxal (REM) et en mesurant les signaux oculaires et musculaires des rêveurs lucides.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            De nombreux mythes persistent. Non, les rêves ne durent pas qu'une seconde ; en réalité, ils peuvent durer de quelques minutes à plus d'une demi-heure. Un autre mythe est que mourir dans un rêve signifie mourir dans la vie réelle, ce qui est totalement faux. Le corps est paralysé pendant le sommeil paradoxal (REM), empêchant l'exécution des actions du rêve.
+                        </p>
+                        <h3 class="text-3xl font-bold magic-text pt-8">La Neurobiologie des Rêves</h3>
+                        <p class="text-lg text-gray-300">
+                            Les rêves se produisent principalement durant la phase de sommeil paradoxal (REM). Durant cette phase, l'activité neuronale est très similaire à celle de l'éveil, mais le tronc cérébral envoie des signaux qui paralysent les muscles du corps. Cette paralysie, appelée atonie, est ce qui nous empêche de nous lever et de vivre nos rêves.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            La recherche a montré que le rêve lucide active des régions du cortex préfrontal qui sont normalement inactives pendant le sommeil paradoxal non lucide. C'est cette activité accrue qui permet la prise de conscience et le raisonnement critique à l'intérieur du rêve, vous permettant de réaliser que vous rêvez et de prendre le contrôle. C'est l'essence même de la lucidité.
+                        </p>
+                        <button class="btn-secondary mt-6 px-6 py-2 font-semibold" onclick="toggleExpertText('science-expert-text')">
+                            Ce que disent nos experts
+                        </button>
+                        <div id="science-expert-text" class="expert-text" aria-hidden="true">
+                            <h4 class="text-xl font-bold magic-text">Découvertes Clés en Somnologie</h4>
+                            <p class="mt-4 text-lg text-gray-300">
+                                Des études historiques ont confirmé la réalité du rêve lucide. En 1975, les chercheurs ont observé qu'un rêveur lucide pouvait communiquer des signaux codés à l'aide de ses mouvements oculaires, qui ne sont pas affectés par la paralysie du sommeil. Le protocole consistait à se mettre d'accord sur un schéma de mouvements oculaires à effectuer une fois lucide, un fait observable par les appareils de mesure de l'activité oculaire. Cela a prouvé que les rêveurs peuvent être conscients et communiquer tout en dormant, validant ainsi la réalité de cet état de conscience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="py-24 px-4 md:px-8">
+            <!-- Dream Journal Section -->
+            <section id="dream-journal" class="max-w-6xl mx-auto section-container">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl md:text-5xl font-bold magic-text">Le Journal de Rêve : La Première Étape</h2>
+                        <p class="text-lg text-gray-300">
+                            Avant même d'essayer de devenir lucide, le fondement de toute pratique de rêve est le journal de rêve. Il s'agit d'un journal où vous notez vos rêves dès votre réveil. C'est l'outil le plus puissant pour améliorer votre rappel des rêves et reconnaître des "indices de rêve" - ces incohérences ou anomalies qui signalent que vous êtes dans un rêve.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            La pratique de l'écriture stimule votre mémoire et renforce la connexion entre votre conscience éveillée et votre monde onirique. En vous forçant à vous souvenir des détails, vous développez une meilleure attention aux motifs récurrents, aux personnages ou aux objets qui apparaissent fréquemment. C'est cette attention qui vous permettra de reconnaître plus facilement que vous rêvez.
+                        </p>
+                        <h3 class="text-3xl font-bold magic-text pt-8">Comment tenir votre Journal</h3>
+                        <p class="text-lg text-gray-300">
+                            Gardez un carnet et un stylo près de votre lit. N'attendez pas de vous lever, car les souvenirs des rêves s'estompent très rapidement. Notez tout ce dont vous vous souvenez : les émotions, les lieux, les personnages, l'histoire et les détails étranges. N'ayez pas peur d'être brouillon. L'important est de capturer l'essence du rêve.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            L'analyse de votre journal de rêve est aussi importante que l'écriture elle-même. Relisez vos entrées une fois par semaine. Cherchez les thèmes, les symboles et les répétitions. Si vous rêvez souvent de votre maison d'enfance, demandez-vous ce que ce lieu représente pour vous. Cela vous aidera à mieux vous comprendre et à trouver des indices de rêve personnalisés.
+                        </p>
+                        <button class="btn-secondary mt-6 px-6 py-2 font-semibold" onclick="toggleExpertText('journal-expert-text')">
+                            Ce que disent nos experts
+                        </button>
+                        <div id="journal-expert-text" class="expert-text" aria-hidden="true">
+                            <h4 class="text-xl font-bold magic-text">Mémoire et Neuroplasticité</h4>
+                            <p class="mt-4 text-lg text-gray-300">
+                                D'un point de vue cognitif, tenir un journal de rêve est une forme de "meta-apprentissage". En forçant votre cerveau à se remémorer des événements de rêve, vous renforcez les chemins neuronaux impliqués dans la consolidation de la mémoire. Cette pratique régulière améliore non seulement la mémoire de vos rêves, mais peut également avoir un impact positif sur votre mémoire à court et à long terme en général, illustrant le concept de neuroplasticité.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative h-96 flex items-center justify-center">
+                        <div id="journal-orb" class="absolute w-48 h-48 rounded-full bg-yellow-500/30 blur-3xl scale-0 animated-orb"></div>
+                        <div id="journal-icon" class="absolute transform scale-0 animated-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="py-24 px-4 md:px-8">
+            <!-- Advanced Techniques Section -->
+            <section id="advanced-techniques" class="max-w-6xl mx-auto section-container">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative h-96 flex items-center justify-center order-2 md:order-1">
+                        <div id="advanced-orb" class="absolute w-48 h-48 rounded-full bg-indigo-500/30 blur-3xl scale-0 animated-orb"></div>
+                        <div id="advanced-icon" class="absolute transform scale-0 animated-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-4.41 0-8 2.69-8 6h16c0-3.31-3.59-6-8-6z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="space-y-6 order-1 md:order-2">
+                        <h2 class="text-4xl md:text-5xl font-bold magic-text">Techniques Avancées et Maîtrise</h2>
+                        <p class="text-lg text-gray-300">
+                            Les techniques d'induction des rêves lucides sont des stratégies que les rêveurs utilisent pour initier la lucidité. Il existe trois méthodes principales, souvent combinées pour de meilleurs résultats. La pratique régulière et la patience sont les clés du succès.
+                        </p>
+                        <h3 class="text-3xl font-bold magic-text pt-8">1. MILD (Mnemonic Induction of Lucid Dreams)</h3>
+                        <p class="text-lg text-gray-300">
+                            C'est une technique basée sur l'intention. Juste avant de vous endormir, répétez mentalement une phrase d'intention, comme : "La prochaine fois que je rêve, je me rappellerai que je rêve." En même temps, visualisez-vous en train de devenir lucide, en effectuant un test de réalité dans votre rêve. Elle se base sur la mémoire prospective (le fait de se souvenir d'accomplir une action future).
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            La MILD est particulièrement efficace lorsqu'elle est combinée avec le réveil après 5 ou 6 heures de sommeil. En vous réveillant pendant la phase de sommeil paradoxal, votre esprit est plus susceptible de plonger directement dans un rêve. Répétez votre intention avant de vous rendormir pour augmenter vos chances de succès.
+                        </p>
+                        <h3 class="text-3xl font-bold magic-text pt-8">2. WILD (Wake-Induced Lucid Dreams)</h3>
+                        <p class="text-lg text-gray-300">
+                            Cette méthode est la plus avancée et consiste à passer directement de l'état de veille à l'état de rêve, sans perte de conscience. Cela demande de la pratique pour maintenir une conscience éveillée tout en laissant le corps s'endormir et en traversant les "hypnagogiques" (des hallucinations visuelles et auditives qui se produisent au moment de l'endormissement).
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Pour pratiquer la WILD, allongez-vous dans une position confortable et détendez-vous. Concentrez-vous sur votre respiration ou sur une image mentale. Vous commencerez à ressentir une sensation de flottement ou de vibrations, ce qui indique que votre corps s'endort. N'ayez pas peur et ne bougez pas. Si vous restez conscient, vous entrerez directement dans un rêve lucide.
+                        </p>
+                        <h3 class="text-3xl font-bold magic-text pt-8">3. DILD (Dream-Induced Lucid Dreams)</h3>
+                        <p class="text-lg text-gray-300">
+                            C'est la technique la plus courante et la plus naturelle pour la plupart des gens. Elle repose sur la reconnaissance d'un "indice de rêve" (quelque chose de bizarre, comme un texte qui change, un miroir déformé, ou le fait de voler) et la réalisation d'un test de réalité. L'efficacité de la DILD est directement liée à la qualité de votre journal de rêve et à votre pratique des tests de réalité pendant la journée.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Un test de réalité consiste à vérifier si vous êtes dans un rêve. Regardez vos mains : si elles ont un aspect étrange ou un nombre de doigts incorrect, c'est que vous rêvez. Essayez de passer votre main à travers un mur. Si elle passe, vous êtes dans un rêve. Pratiquer ces tests plusieurs fois par jour, à des moments aléatoires, augmentera vos chances de les faire dans un rêve.
+                        </p>
+                        <button class="btn-secondary mt-6 px-6 py-2 font-semibold" onclick="toggleExpertText('techniques-expert-text')">
+                            Ce que disent nos experts
+                        </button>
+                        <div id="techniques-expert-text" class="expert-text" aria-hidden="true">
+                            <h4 class="text-xl font-bold magic-text">Synchronisation et Phases de Sommeil</h4>
+                            <p class="mt-4 text-lg text-gray-300">
+                                La science du sommeil met en lumière l'importance du timing pour les techniques d'induction. Les rêves lucides surviennent le plus souvent pendant les périodes de sommeil paradoxal (REM) les plus longues, qui se produisent généralement en fin de nuit. Pour cette raison, des techniques comme la MILD sont souvent pratiquées après un réveil planifié, pour cibler ces cycles de sommeil propices. Les chercheurs en somnologie étudient également les effets de certains compléments alimentaires comme la choline et la galantamine, qui augmentent les niveaux d'acétylcholine et peuvent améliorer la capacité de se souvenir des rêves et de devenir lucide.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Citation Section -->
+        <section class="max-w-4xl mx-auto py-12 px-4 md:px-8 text-center">
+            <blockquote class="text-2xl md:text-3xl font-light italic text-gray-400 leading-relaxed">
+                <p>"La vie et les rêves sont les feuilles d'un même livre. Les lire dans l'ordre, c'est vivre. Les feuilleter au hasard, c'est rêver."</p>
+                <cite class="block mt-4 text-lg font-normal not-italic text-gray-500">- Arthur Schopenhauer</cite>
+            </blockquote>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 Monde Onirique. Tous droits réservés.</p>
+        </footer>
+    </div>
+
+    <!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+
+<!-- Ton script perso -->
+<script src="script.js"></script>
+
+</body>
+
+</html>
